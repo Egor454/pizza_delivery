@@ -124,7 +124,7 @@ namespace pizza_delivery.ViewModel
                       
                   },
                  //условие, при котором будет доступна команда
-                 (obj) => (SetFIO != null && Setnumber != 0 && SetCitys != null && Setaddres != null)));
+                 (obj) => (products.Count!=0 && SetFIO != null && Setnumber != 0 && SetCitys != null && Setaddres != null)));
                 
             }
             
