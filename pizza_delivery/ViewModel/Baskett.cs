@@ -117,6 +117,10 @@ namespace pizza_delivery.ViewModel
                       db.SaveChanges();
                       Products.Clear();
                       Getsum = 0;
+                      SetFIO = null;
+                      Setaddres = null;
+                      SetCitys = null;
+                      Setnumber = 0;
                       
                   },
                  //условие, при котором будет доступна команда
