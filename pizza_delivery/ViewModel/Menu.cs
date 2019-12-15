@@ -11,14 +11,16 @@ namespace pizza_delivery.ViewModel
     public class Menu : Bases, IObservable
     {
         private Model1 db;
-
+        private Product product;
         private List<IObserver> observers;
         public List<ProductVM> AllPizza { get; set; }
         public Menu()
         {
+
             db = new Model1();
             AllPizza = db.Product.ToList().Select(i => new ProductVM(i)).ToList();
             observers = new List<IObserver>();
+            
         }
 
         public void AddBasket(IObserver o)
@@ -31,6 +33,7 @@ namespace pizza_delivery.ViewModel
             foreach (IObserver o in observers)
             {
                 o.Update(ID);
+               
             }
         }
         private ProductVM selectproduct;
@@ -39,7 +42,7 @@ namespace pizza_delivery.ViewModel
             get { return selectproduct; }
             set
             {
-                 selectproduct = value; ID = selectproduct.ProductID; NotifyObservers(); OnPropertyChanged("SelectProduct");
+                 selectproduct = value;  namepizza = selectproduct.Name;  OnPropertyChanged("SelectProduct");
 
             }
         }
@@ -53,10 +56,20 @@ namespace pizza_delivery.ViewModel
                   {
                       ID = selectproduct.ProductID;
                       NotifyObservers();
-                  }));
+                  },
+                  (obj) => (selectproduct!=null)));
+            
             }
         }
-
+        private string namepizza = null;
+        public string NamePizza
+        {
+            get { return namepizza; }
+        }
+        //public string Sostav
+        //{
+        //    get { return String.Join(",", product.Composition.Select(i => i.Ingredients.Name).ToList()); }
+        //}
 
     }
 }

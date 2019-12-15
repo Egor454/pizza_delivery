@@ -12,7 +12,7 @@ namespace pizza_delivery.ViewModel
     {
         Model1 db;
         private ObservableCollection <Product> products;
-        decimal sums;
+
         public ObservableCollection<Product> Products
         {
             get { return products; }

@@ -16,7 +16,7 @@ namespace pizza_delivery.ViewModel
         public ProductVM(Product p)
         {
             product = p;
-            
+
         }
 
         public int ProductID
