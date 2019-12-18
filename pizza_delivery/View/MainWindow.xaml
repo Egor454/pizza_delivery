@@ -19,7 +19,7 @@
         <StackPanel Background="{StaticResource MediumBrush}"  >
             <TextBlock Text="Pizza Delivery" FontSize="20" Width="100" Height="45" LineHeight="14" TextAlignment="Center" TextDecorations="{x:Null}" TextWrapping="Wrap" Panel.ZIndex="-2" Foreground="{DynamicResource DarkBaseBrush}" FontFamily="Global Serif"  LineStackingStrategy="MaxHeight" FontWeight="ExtraBold" FontStyle="Italic"/>
 
-            <Button Content="Меню" Style="{StaticResource BaseButton}"  Height="50" Margin="3" Click="Button_Click_1"/>
+            <Button Content="Меню" Style="{StaticResource BaseButton}"  Height="50" Margin="3"  Click="Button_Click_1"/>
             <Button Content="Корзина" Style="{StaticResource BaseButton}" Height="50" Margin="3" Click="Button_Click"/>
             <Button Content="Создать пиццу" Style="{StaticResource BaseButton}" Height="50" Margin="3" Click="Button_Click_3"/>
             <Button Content="Статистика" Style="{StaticResource BaseButton}" Height="50" Margin="3" Click="Button_Click_2"/>

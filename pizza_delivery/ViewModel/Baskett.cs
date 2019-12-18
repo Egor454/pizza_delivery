@@ -33,6 +33,7 @@ namespace pizza_delivery.ViewModel
             Products.Add(pr);
             Products = Products;
             Getsum += pr.Price;
+            
         }
         private string Fio=null;
         private decimal number = 0;

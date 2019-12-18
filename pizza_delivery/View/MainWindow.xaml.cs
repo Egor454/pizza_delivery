@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using pizza_delivery.ViewModel;
 
 namespace pizza_delivery.View
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window 
     {
         Page menu;
         Page basket;
@@ -37,7 +37,7 @@ namespace pizza_delivery.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+
             Page.Content = basket;
         }
 

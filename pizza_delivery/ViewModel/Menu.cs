@@ -42,7 +42,7 @@ namespace pizza_delivery.ViewModel
             get { return selectproduct; }
             set
             {
-                 selectproduct = value;  namepizza = selectproduct.Name;  OnPropertyChanged("SelectProduct");
+                 selectproduct = value;Namepizza+= selectproduct.Name;  OnPropertyChanged("SelectProduct");
 
             }
         }
@@ -61,15 +61,12 @@ namespace pizza_delivery.ViewModel
             
             }
         }
-        private string namepizza = null;
-        public string NamePizza
+        private string namepizza ;
+        public string Namepizza
         {
             get { return namepizza; }
+            set { namepizza = value; OnPropertyChanged("Namepizza"); }
         }
-        //public string Sostav
-        //{
-        //    get { return String.Join(",", product.Composition.Select(i => i.Ingredients.Name).ToList()); }
-        //}
 
     }
 }

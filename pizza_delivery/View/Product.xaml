@@ -40,11 +40,18 @@
             </ListBox>
         </Grid>
         <Grid Grid.Column="1">
-            <StackPanel>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.7*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel  DataContext="{Binding Path=SelectProduct}" >
                 <TextBlock  Text="{Binding Path=Namepizza, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Foreground="{DynamicResource DarkBaseBrush}" FontWeight="ExtraBold" Height="22"/>
                 <TextBox Text="Состав:" IsReadOnly="True"  HorizontalAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="14" FontWeight="Bold" FontStyle="Italic" Background="White" Foreground="{DynamicResource DarkBaseBrush}" Style="{StaticResource TextNew}"/>
-                <TextBlock Text="{Binding Path=Sostav}" FontSize="14"/>
+                <TextBlock Text="{Binding Path=Sostav,UpdateSourceTrigger=PropertyChanged}" FontSize="14" Height="118" TextWrapping="Wrap" Foreground="{DynamicResource DarkBaseBrush}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" >
                 <Button Command="{Binding Path=AddPizza}" CommandParameter="{Binding}"  Style="{StaticResource BaseButton}" Content="Купить" Width="100"/>
+                
             </StackPanel>
         </Grid>
     </Grid>
