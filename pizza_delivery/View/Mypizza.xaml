@@ -5,24 +5,58 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:pizza_delivery.View"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="417" d:DesignWidth="770"
       Title="Mypizza">
 
-    <Grid Background="#FF8D8219">
-        <ListBox ItemsSource="{Binding Path=AllPizza}" Background="{x:Null}">
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel/>
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <Image Source="/pizza_delivery;component/GAv.jpg"/>
-                        <TextBlock Text="{Binding Path=Name}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <TabControl ItemContainerStyle="{StaticResource chevronTabItemStyle}" >
+                <TabItem Header="Соусы" Width="87" Height="40" Background="{DynamicResource UltraLightBaseBrush}">
+                    
+                </TabItem>
+                <TabItem Header="Сыр" Width="90" Height="40" Background="{DynamicResource UltraLightBaseBrush}">
+
+                </TabItem>
+                <TabItem Header="Мясо" Width="90" Height="40" Background="{DynamicResource UltraLightBaseBrush}">
+
+                </TabItem>
+                <TabItem Header="Грибы" Width="90" Height="40" Background="{DynamicResource UltraLightBaseBrush}">
+
+                </TabItem>
+                <TabItem Header="Овощи" Width="90" Height="40" Background="{DynamicResource UltraLightBaseBrush}">
+
+                </TabItem>
+                <TabItem Header="Приправы" Width="90" Height="40" Background="{DynamicResource UltraLightBaseBrush}">
+
+                </TabItem>
+            </TabControl>
+       
+        </Grid>
+        <Grid Grid.Column="1">
+            <StackPanel>
+
+
+
+
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>
+<!--<ListBox ItemsSource="{Binding Path=AllPizza}" Background="{x:Null}">
+    <ListBox.ItemsPanel>
+        <ItemsPanelTemplate>
+            <WrapPanel/>
+        </ItemsPanelTemplate>
+    </ListBox.ItemsPanel>
+    <ListBox.ItemTemplate>
+        <DataTemplate>
+            <StackPanel>
+
+            </StackPanel>
+        </DataTemplate>
+    </ListBox.ItemTemplate>
+</ListBox>-->

@@ -42,12 +42,12 @@ namespace pizza_delivery.ViewModel
         {
             get { return String.Join(",", product.Composition.Select(i => i.Ingredients.Name).ToList()); }
         }
-        //private string namepizza;
-        //public string Namepizza
-        //{
-        //    get { return namepizza; }
-        //    set { namepizza = value; OnPropertyChanged("Namepizza"); }
-        //}
+        
+        public string Namepizza
+        {
+            get { return product.Name; }
+           
+        }
 
 
     }

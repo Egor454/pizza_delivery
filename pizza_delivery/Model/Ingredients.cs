@@ -21,11 +21,15 @@ namespace pizza_delivery.Model
         [StringLength(50)]
         public string Name { get; set; }
 
+
+        public string Category { get; set; }
+
         public int weight { get; set; }
 
         public decimal Price { get; set; }
 
         public int? Visible { get; set; }
+
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Composition> Composition { get; set; }

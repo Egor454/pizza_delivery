@@ -11,12 +11,12 @@ namespace pizza_delivery.ViewModel
     public class Menu : Bases, IObservable
     {
         private Model1 db;
-        private Product product;
+       
         private List<IObserver> observers;
         public List<ProductVM> AllPizza { get; set; }
         public Menu()
         {
-
+            
             db = new Model1();
             AllPizza = db.Product.ToList().Select(i => new ProductVM(i)).ToList();
             observers = new List<IObserver>();
@@ -42,7 +42,7 @@ namespace pizza_delivery.ViewModel
             get { return selectproduct; }
             set
             {
-                 selectproduct = value;Namepizza+= selectproduct.Name;  OnPropertyChanged("SelectProduct");
+                 selectproduct = value;  OnPropertyChanged("SelectProduct");
 
             }
         }
@@ -60,12 +60,6 @@ namespace pizza_delivery.ViewModel
                   (obj) => (selectproduct!=null)));
             
             }
-        }
-        private string namepizza ;
-        public string Namepizza
-        {
-            get { return namepizza; }
-            set { namepizza = value; OnPropertyChanged("Namepizza"); }
         }
 
     }
