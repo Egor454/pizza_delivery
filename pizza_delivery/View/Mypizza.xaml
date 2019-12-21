@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:pizza_delivery.View"
+      xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
       mc:Ignorable="d" 
       d:DesignHeight="417" d:DesignWidth="770"
       Title="Mypizza">
@@ -14,27 +15,144 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
-            <TabControl ItemContainerStyle="{StaticResource chevronTabItemStyle}" >
+            <dragablz:TabablzControl BorderBrush="{DynamicResource UltraLightBaseBrush}">
+                <dragablz:TabablzControl.InterTabController>
+                    <dragablz:InterTabController />
+                </dragablz:TabablzControl.InterTabController>
                 <TabItem Header="Соусы" Width="87" Height="40" Background="{DynamicResource UltraLightBaseBrush}">
-                    
+                    <ListBox ItemsSource="{Binding Path=AllIngredients}" SelectedItem="{Binding Path=SelectIngredient}"  Background="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="3">
+                                    <Image Width="150" Height="150" Source="{Binding Path=Image}"/>
+                                    <TextBlock Text="{Binding Path=Name}"/>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                                        <TextBlock Text="Цена: "/>
+                                        <TextBlock Text="{Binding Path=Price}"/>
+                                        <TextBlock Text=" ₽"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </TabItem>
                 <TabItem Header="Сыр" Width="90" Height="40" Background="{DynamicResource UltraLightBaseBrush}">
-
+                    <ListBox ItemsSource="{Binding Path=AllIngredients}" SelectedItem="{Binding Path=SelectIngredient}"  Background="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="3">
+                                    <Image Width="150" Height="150" Source="{Binding Path=Image}"/>
+                                    <TextBlock Text="{Binding Path=Name}"/>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                                        <TextBlock Text="Цена: "/>
+                                        <TextBlock Text="{Binding Path=Price}"/>
+                                        <TextBlock Text=" ₽"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </TabItem>
                 <TabItem Header="Мясо" Width="90" Height="40" Background="{DynamicResource UltraLightBaseBrush}">
-
+                    <ListBox ItemsSource="{Binding Path=AllIngredients}" SelectedItem="{Binding Path=SelectIngredient}"  Background="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="3">
+                                    <Image Width="150" Height="150" Source="{Binding Path=Image}"/>
+                                    <TextBlock Text="{Binding Path=Name}"/>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                                        <TextBlock Text="Цена: "/>
+                                        <TextBlock Text="{Binding Path=Price}"/>
+                                        <TextBlock Text=" ₽"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </TabItem>
                 <TabItem Header="Грибы" Width="90" Height="40" Background="{DynamicResource UltraLightBaseBrush}">
-
+                    <ListBox ItemsSource="{Binding Path=AllIngredients}" SelectedItem="{Binding Path=SelectIngredient}"  Background="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="3">
+                                    <Image Width="150" Height="150" Source="{Binding Path=Image}"/>
+                                    <TextBlock Text="{Binding Path=Name}"/>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                                        <TextBlock Text="Цена: "/>
+                                        <TextBlock Text="{Binding Path=Price}"/>
+                                        <TextBlock Text=" ₽"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </TabItem>
                 <TabItem Header="Овощи" Width="90" Height="40" Background="{DynamicResource UltraLightBaseBrush}">
-
+                    <ListBox ItemsSource="{Binding Path=AllIngredients}" SelectedItem="{Binding Path=SelectIngredient}"  Background="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="3">
+                                    <Image Width="150" Height="150" Source="{Binding Path=Image}"/>
+                                    <TextBlock Text="{Binding Path=Name}"/>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                                        <TextBlock Text="Цена: "/>
+                                        <TextBlock Text="{Binding Path=Price}"/>
+                                        <TextBlock Text=" ₽"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </TabItem>
                 <TabItem Header="Приправы" Width="90" Height="40" Background="{DynamicResource UltraLightBaseBrush}">
-
+                    <ListBox ItemsSource="{Binding Path=AllIngredients}" SelectedItem="{Binding Path=SelectIngredient}"  Background="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="3">
+                                    <Image Width="150" Height="150" Source="{Binding Path=Image}"/>
+                                    <TextBlock Text="{Binding Path=Name}"/>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                                        <TextBlock Text="Цена: "/>
+                                        <TextBlock Text="{Binding Path=Price}"/>
+                                        <TextBlock Text=" ₽"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </TabItem>
-            </TabControl>
-       
+            </dragablz:TabablzControl>
+
         </Grid>
         <Grid Grid.Column="1">
             <StackPanel>
@@ -46,17 +164,3 @@
         </Grid>
     </Grid>
 </Page>
-<!--<ListBox ItemsSource="{Binding Path=AllPizza}" Background="{x:Null}">
-    <ListBox.ItemsPanel>
-        <ItemsPanelTemplate>
-            <WrapPanel/>
-        </ItemsPanelTemplate>
-    </ListBox.ItemsPanel>
-    <ListBox.ItemTemplate>
-        <DataTemplate>
-            <StackPanel>
-
-            </StackPanel>
-        </DataTemplate>
-    </ListBox.ItemTemplate>
-</ListBox>-->

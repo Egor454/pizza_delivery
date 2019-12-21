@@ -44,11 +44,17 @@
     <Reference Include="DevExpress.Mvvm.UI, Version=19.2.0.0, Culture=neutral, PublicKeyToken=382ad28f6ae31f30, processorArchitecture=MSIL">
       <HintPath>..\packages\DevExpressMvvm.19.2.3\lib\net452\DevExpress.Mvvm.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Dragablz, Version=0.0.3.203, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dragablz.0.0.3.203\lib\net45\Dragablz.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.1\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -85,6 +91,8 @@
     <Compile Include="Model\sysdiagrams.cs" />
     <Compile Include="ViewModel\Bases.cs" />
     <Compile Include="ViewModel\Baskett.cs" />
+    <Compile Include="ViewModel\Constructor.cs" />
+    <Compile Include="ViewModel\IngredientsVM.cs" />
     <Compile Include="ViewModel\IObservable.cs" />
     <Compile Include="ViewModel\IObserver.cs" />
     <Compile Include="ViewModel\IValueConverter.cs" />

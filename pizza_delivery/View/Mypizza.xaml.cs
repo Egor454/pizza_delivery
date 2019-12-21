@@ -20,9 +20,10 @@ namespace pizza_delivery.View
     /// </summary>
     public partial class Mypizza : Page
     {
-        public Mypizza()
+        public Mypizza(ViewModel.Constructor con)
         {
             InitializeComponent();
+            DataContext = con;
         }
     }
 }

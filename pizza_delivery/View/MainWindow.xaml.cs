@@ -32,7 +32,8 @@ namespace pizza_delivery.View
             InitializeComponent();
             menu = new Product(menus);
             Page.Content = menu;
-           
+            ViewModel.Constructor construc = new ViewModel.Constructor();
+            mypizza = new Mypizza(construc);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -54,7 +55,7 @@ namespace pizza_delivery.View
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            mypizza = new Mypizza();
+
             Page.Content = mypizza;
         }
 
