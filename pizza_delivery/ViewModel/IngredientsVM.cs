@@ -21,7 +21,7 @@ namespace pizza_delivery.ViewModel
         public int IngredientID
         {
             get { return ingredients.IngredientID; }
-            set { ingredients.IngredientID = value; OnPropertyChanged("ProductID"); }
+            set { ingredients.IngredientID = value; OnPropertyChanged("IngredientID"); }
         }
 
         public string Image
@@ -37,6 +37,12 @@ namespace pizza_delivery.ViewModel
         {
             get { return ingredients.Price; }
         }
+        public int Weight
+        {
+            get { return ingredients.weight; }
+        }
+ 
+
 
     }
 }

@@ -15,12 +15,12 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
-            <dragablz:TabablzControl BorderBrush="{DynamicResource UltraLightBaseBrush}">
+            <dragablz:TabablzControl BorderBrush="{DynamicResource UltraLightBaseBrush}" >
                 <dragablz:TabablzControl.InterTabController>
                     <dragablz:InterTabController />
                 </dragablz:TabablzControl.InterTabController>
-                <TabItem Header="Соусы" Width="87" Height="40" Background="{DynamicResource UltraLightBaseBrush}">
-                    <ListBox ItemsSource="{Binding Path=AllIngredients}" SelectedItem="{Binding Path=SelectIngredient}"  Background="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <TabItem Header="Соус" Width="87" Height="40" Background="{DynamicResource UltraLightBaseBrush}"  >
+                    <ListBox ItemsSource="{Binding Path=Sous}" SelectedItem="{Binding Path=SelectIngredient}"  Background="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel/>
@@ -42,7 +42,7 @@
                     </ListBox>
                 </TabItem>
                 <TabItem Header="Сыр" Width="90" Height="40" Background="{DynamicResource UltraLightBaseBrush}">
-                    <ListBox ItemsSource="{Binding Path=AllIngredients}" SelectedItem="{Binding Path=SelectIngredient}"  Background="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListBox ItemsSource="{Binding Path=Cheese}" SelectedItem="{Binding Path=SelectIngredient}"  Background="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel/>
@@ -64,7 +64,7 @@
                     </ListBox>
                 </TabItem>
                 <TabItem Header="Мясо" Width="90" Height="40" Background="{DynamicResource UltraLightBaseBrush}">
-                    <ListBox ItemsSource="{Binding Path=AllIngredients}" SelectedItem="{Binding Path=SelectIngredient}"  Background="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListBox ItemsSource="{Binding Path=Meat}" SelectedItem="{Binding Path=SelectIngredient}"  Background="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel/>
@@ -86,7 +86,7 @@
                     </ListBox>
                 </TabItem>
                 <TabItem Header="Грибы" Width="90" Height="40" Background="{DynamicResource UltraLightBaseBrush}">
-                    <ListBox ItemsSource="{Binding Path=AllIngredients}" SelectedItem="{Binding Path=SelectIngredient}"  Background="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListBox ItemsSource="{Binding Path=Mushrooms}" SelectedItem="{Binding Path=SelectIngredient}"  Background="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel/>
@@ -108,7 +108,7 @@
                     </ListBox>
                 </TabItem>
                 <TabItem Header="Овощи" Width="90" Height="40" Background="{DynamicResource UltraLightBaseBrush}">
-                    <ListBox ItemsSource="{Binding Path=AllIngredients}" SelectedItem="{Binding Path=SelectIngredient}"  Background="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListBox ItemsSource="{Binding Path=Vegetables}" SelectedItem="{Binding Path=SelectIngredient}"  Background="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel/>
@@ -130,7 +130,7 @@
                     </ListBox>
                 </TabItem>
                 <TabItem Header="Приправы" Width="90" Height="40" Background="{DynamicResource UltraLightBaseBrush}">
-                    <ListBox ItemsSource="{Binding Path=AllIngredients}" SelectedItem="{Binding Path=SelectIngredient}"  Background="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListBox ItemsSource="{Binding Path=Seasonings}" SelectedItem="{Binding Path=SelectIngredient}"  Background="{x:Null}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel/>
@@ -154,13 +154,19 @@
             </dragablz:TabablzControl>
 
         </Grid>
-        <Grid Grid.Column="1">
-            <StackPanel>
-
-
-
-
-            </StackPanel>
+        <Grid Grid.Column="1"  >
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel >
+                    <TextBox Text="Состав:" IsReadOnly="True"  HorizontalAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="14" FontWeight="Bold" FontStyle="Italic" Background="White" Foreground="{DynamicResource DarkBaseBrush}" Style="{StaticResource TextNew}"/>
+                    <TextBlock Text="{Binding Path=Sostav,UpdateSourceTrigger=PropertyChanged}"  TextWrapping="Wrap" Foreground="{DynamicResource DarkBaseBrush}" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                    <TextBox Text="Сумма:" IsReadOnly="True"  HorizontalAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="14" FontWeight="Bold" FontStyle="Italic" Background="White" Foreground="{DynamicResource DarkBaseBrush}" Style="{StaticResource TextNew}"/>
+                    <TextBlock Text="{Binding Path=Summa}"  TextWrapping="Wrap" Foreground="{DynamicResource DarkBaseBrush}" HorizontalAlignment="Center"/>
+                    <TextBox Text="Вес:" IsReadOnly="True"  HorizontalAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="14" FontWeight="Bold" FontStyle="Italic" Background="White" Foreground="{DynamicResource DarkBaseBrush}" Style="{StaticResource TextNew}"/>
+                    <TextBlock Text="{Binding Path=GetWeight}"  TextWrapping="Wrap" Foreground="{DynamicResource DarkBaseBrush}" HorizontalAlignment="Center"/>
+                    <Button Command="{Binding Path=AddMyPizza}" CommandParameter="{Binding}"  Style="{StaticResource BaseButton}" Content="Купить" Width="100"/>
+                    <Button Command="{Binding Path=ReturnPizza}" CommandParameter="{Binding}"  Style="{StaticResource BaseButton}" Margin="5" Content="Заново" Width="100"/>
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Page>

@@ -18,7 +18,7 @@ namespace pizza_delivery.ViewModel
         {
             
             db = new Model1();
-            AllPizza = db.Product.ToList().Select(i => new ProductVM(i)).ToList();
+            AllPizza = db.Product.Where(i => i.Own_pizza == false).ToList().Select(i => new ProductVM(i)).ToList();
             observers = new List<IObserver>();
             
         }

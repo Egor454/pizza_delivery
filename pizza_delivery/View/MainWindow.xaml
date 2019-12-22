@@ -14,7 +14,7 @@
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.13*"/>
+            <ColumnDefinition Width="0.14*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Background="{StaticResource MediumBrush}"  >

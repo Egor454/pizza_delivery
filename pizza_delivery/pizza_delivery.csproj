@@ -214,6 +214,64 @@
   <ItemGroup>
     <Resource Include="Pictures\4 сыра.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Cоус томатный.jpg" />
+    <Resource Include="Pictures\Ананасы.jpg" />
+    <Resource Include="Pictures\Ассорти из колбас.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Базилик.jpg" />
+    <Resource Include="Pictures\Бастурма.jpg" />
+    <Resource Include="Pictures\Бекон.jpg" />
+    <Resource Include="Pictures\Брокколи.jpg" />
+    <Resource Include="Pictures\Ветчина.jpg" />
+    <Resource Include="Pictures\Грибы Шиитаке.jpg" />
+    <Resource Include="Pictures\Зелень.jpg" />
+    <Resource Include="Pictures\Колбаса п.к.jpg" />
+    <Resource Include="Pictures\Колбаса студенческая.jpg" />
+    <Resource Include="Pictures\Креветки.jpg" />
+    <Resource Include="Pictures\Кукуруза.jpg" />
+    <Resource Include="Pictures\Курица.jpg" />
+    <Resource Include="Pictures\Кусочки говядины со специями.jpg" />
+    <Resource Include="Pictures\Лук красный.jpg" />
+    <Resource Include="Pictures\Майонез.jpg" />
+    <Resource Include="Pictures\Маринованные огурчики.jpg" />
+    <Resource Include="Pictures\Маслины.jpg" />
+    <Resource Include="Pictures\Микс салат.jpg" />
+    <Resource Include="Pictures\Морковь по-корейски.jpg" />
+    <Resource Include="Pictures\Опята.jpg" />
+    <Resource Include="Pictures\Охотничьи колбаски.jpg" />
+    <Resource Include="Pictures\Перец болгарский зеленый.jpg" />
+    <Resource Include="Pictures\Перец Болгарский.jpg" />
+    <Resource Include="Pictures\Перец халапеньо.jpg" />
+    <Resource Include="Pictures\Помидоры черри.jpg" />
+    <Resource Include="Pictures\Помидоры.jpg" />
+    <Resource Include="Pictures\Салат Айсберг.jpg" />
+    <Resource Include="Pictures\Салями.jpg" />
+    <Resource Include="Pictures\Семга.jpg" />
+    <Resource Include="Pictures\Сосиски баварские с зеленью.jpg" />
+    <Resource Include="Pictures\Соус Баварский.jpg" />
+    <Resource Include="Pictures\Соус Барбекю.jpg" />
+    <Resource Include="Pictures\Соус Грибной.jpg" />
+    <Resource Include="Pictures\Соус Французский.jpg" />
+    <Resource Include="Pictures\Соус Цезарь.jpg" />
+    <Resource Include="Pictures\Сыр Гауда.jpg" />
+    <Resource Include="Pictures\Сыр Голландский.jpg" />
+    <Resource Include="Pictures\Сыр Моцарелла.jpg" />
+    <Resource Include="Pictures\Сыр Пармезан.jpg" />
+    <Resource Include="Pictures\Сыр с голубой плесенью.jpg" />
+    <Resource Include="Pictures\Сыр Фета.jpg" />
+    <Resource Include="Pictures\Фарш Болоньезе.jpg" />
+    <Resource Include="Pictures\Черный перец.jpg" />
+    <Resource Include="Pictures\Чеснок.jpg" />
+    <Resource Include="Pictures\Шампиньоны.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Соус фирменный.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Пепперони 8шт.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
