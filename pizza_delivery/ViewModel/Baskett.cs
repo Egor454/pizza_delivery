@@ -65,7 +65,7 @@ namespace pizza_delivery.ViewModel
             set { addres = value; OnPropertyChanged("Setaddres"); }
 
         }
-        //dshfkhsdkhfksdhkdhskhh
+
 
         private RelayCommand orderPizza;
         public RelayCommand OrderPizza
@@ -92,7 +92,7 @@ namespace pizza_delivery.ViewModel
                       Order order = new Order()
                       {
                           Client_FK = client.ClientID,
-                          Status_FK = 4,
+                          Status_FK = 1,
                           Dispatcher_FK = 1,
                           cost = sums,
                           DateBegin = DateTime.Now,

@@ -27,13 +27,16 @@ namespace pizza_delivery.View
         Page mypizza;
         public MainWindow()
         {
+            InitializeComponent();
             ViewModel.Menu menus = new ViewModel.Menu();
             basket = new Basket(menus);
-            InitializeComponent();
             menu = new Product(menus);
             Page.Content = menu;
             ViewModel.Constructor construc = new ViewModel.Constructor();
             mypizza = new Mypizza(construc);
+            ViewModel.Statistica sta = new ViewModel.Statistica();
+            staticx = new Static(sta);
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -49,7 +52,7 @@ namespace pizza_delivery.View
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            staticx = new Static();
+   
             Page.Content = staticx;
         }
 

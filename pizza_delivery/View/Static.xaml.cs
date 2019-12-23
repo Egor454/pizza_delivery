@@ -20,9 +20,10 @@ namespace pizza_delivery.View
     /// </summary>
     public partial class Static : Page
     {
-        public Static()
+        public Static(ViewModel.Statistica s)
         {
             InitializeComponent();
+            DataContext = s;
         }
     }
 }

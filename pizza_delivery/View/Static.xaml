@@ -8,21 +8,37 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Static">
 
-    <Grid Background="#FF29298D">
-        <ListBox ItemsSource="{Binding Path=AllProduct}" Background="{x:Null}">
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel/>
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <Image Source="/pizza_delivery;component/Pictures/Баварская.jpg"/>
-                        <TextBlock Text="{Binding Path=Name}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.15*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" >
+            <TextBox Text="Введите номер телефона:" IsReadOnly="True" Margin="2"  FontFamily="Franklin Gothic Medium" FontSize="14" FontWeight="Bold" FontStyle="Italic" Background="White" Foreground="{DynamicResource DarkBaseBrush}" Style="{StaticResource TextNew}" Height="18" />
+            <TextBox  Text="{Binding Path=Setnumber}" Margin="10" HorizontalAlignment="Center" Width="200" Height="18"/>
+                <TextBox Text="Заказы с:" IsReadOnly="True"  HorizontalAlignment="Center" FontFamily="Franklin Gothic Medium"  FontSize="14" FontWeight="Bold" FontStyle="Italic" Background="White" Foreground="{DynamicResource DarkBaseBrush}" Style="{StaticResource TextNew}" Height="18"/>
+                <DatePicker Name="datePicker1"  SelectedDateFormat="Short" Height="27"  />
+            <TextBox Text="по:" IsReadOnly="True"  HorizontalAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="14" FontWeight="Bold" FontStyle="Italic" Background="White" Foreground="{DynamicResource DarkBaseBrush}" Style="{StaticResource TextNew}" Height="18"/>
+            <DatePicker Name="datePicker2"  SelectedDateFormat="Short" Height="27" />
+           </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel >
+                <Button Command="{Binding Path=Wath}" CommandParameter="{Binding}" Margin="5" Style="{StaticResource BaseButton}" Content="Найти" Width="100"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2">
+            <DataGrid AutoGenerateColumns="False" x:Name="phonesGrid"  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Nomer}" Header="Номер заказа" Width="120"/>
+                <DataGridTextColumn Binding="{Binding Kol}" Header="Количество товара" Width="120"/>
+                <DataGridTextColumn Binding="{Binding Addres}" Header="Адрес" Width="160"/>
+                <DataGridTextColumn Binding="{Binding Price}" Header="Стоимость" Width="80"/>
+            </DataGrid.Columns>
+           </DataGrid>
+       </Grid>
+
     </Grid>
 </Page>

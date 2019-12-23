@@ -87,6 +87,7 @@
     <Compile Include="Model\Model1.cs" />
     <Compile Include="Model\Order.cs" />
     <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\ReportModels.cs" />
     <Compile Include="Model\Status.cs" />
     <Compile Include="Model\sysdiagrams.cs" />
     <Compile Include="ViewModel\Bases.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="ViewModel\Menu.cs" />
     <Compile Include="ViewModel\ProductVM.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="ViewModel\Statistica.cs" />
     <Compile Include="View\Basket.xaml.cs">
       <DependentUpon>Basket.xaml</DependentUpon>
     </Compile>
