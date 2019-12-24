@@ -7,7 +7,7 @@ using pizza_delivery.Model;
 
 namespace pizza_delivery.ViewModel
 {
-   public class Constructor:Bases, IObservable
+   public class Constructor:Bases
     {
         private Model1 db;
 
@@ -18,11 +18,10 @@ namespace pizza_delivery.ViewModel
         public List<IngredientsVM> Vegetables { get; set; }
         public List<IngredientsVM> Seasonings { get; set; }
         private int ID;
-        private List<IObserver> observers;
         public  List<int> Pizza { get; set; }
 
-
-        public Constructor()
+        private Baskett baskett;
+        public Constructor(Baskett basket)
         {
             db = new Model1();
             Pizza = new List<int>().ToList();
@@ -31,7 +30,7 @@ namespace pizza_delivery.ViewModel
             Summa = 80;
             GetWeight = 310;
             Sostav = "Тесто";
-            observers = new List<IObserver>();
+            baskett = basket;
             Sous= db.Ingredients.Where(i=>i.Category=="Соус").ToList().Select(i => new IngredientsVM(i)).ToList();
             Cheese = db.Ingredients.Where(i => i.Category == "Сыр").ToList().Select(i => new IngredientsVM(i)).ToList();
             Meat = db.Ingredients.Where(i => i.Category == "Мясо").ToList().Select(i => new IngredientsVM(i)).ToList();
@@ -39,18 +38,7 @@ namespace pizza_delivery.ViewModel
             Vegetables = db.Ingredients.Where(i => i.Category == "Овощи").ToList().Select(i => new IngredientsVM(i)).ToList();
             Seasonings = db.Ingredients.Where(i => i.Category == "Приправы").ToList().Select(i => new IngredientsVM(i)).ToList();
         }
-        public void AddBasket(IObserver o)
-        {
-            observers.Add(o);
-        }
-        public void NotifyObservers()
-        {
-            foreach (IObserver o in observers)
-            {
-                o.Update(ID);
 
-            }
-        }
         private IngredientsVM selectingredient;
         public IngredientsVM SelectIngredient
         {
@@ -59,11 +47,27 @@ namespace pizza_delivery.ViewModel
             {
                 if (getWeight < 1500 )
                 {
+                    
                     selectingredient = value;
-                    Pizza.Add(selectingredient.IngredientID);
-                    Sostav += selectingredient.Name;
-                    GetWeight += selectingredient.Weight;
-                    Summa += selectingredient.Price;
+                    if (!Pizza.Contains(selectingredient.IngredientID))
+                    {
+                        Pizza.Add(selectingredient.IngredientID);
+                        Sostav += selectingredient.Name;
+                        GetWeight += selectingredient.Weight;
+                        Summa += selectingredient.Price;
+                    }
+                    else
+                    {
+                        Pizza.Remove(selectingredient.IngredientID);
+                        Sostav = null;
+                        foreach(var id in Pizza)
+                        {
+                            Ingredients ing = db.Ingredients.Find(id);
+                            Sostav += ing.Name;
+                        }
+                        GetWeight -= selectingredient.Weight;
+                        Summa -= selectingredient.Price;
+                    }
                     OnPropertyChanged("SelectIngredient");
                 }
 
@@ -77,10 +81,9 @@ namespace pizza_delivery.ViewModel
                 return addMyPizza ??
                   (addMyPizza = new RelayCommand(obj =>
                   {
-  
                       Product product = new Product
                       {
-                          Name = "Конструктор пиццы",
+                          Name = "Конструктор",
                           Price = summa,
                           Size = 37,
                           weight=getWeight,
@@ -101,14 +104,15 @@ namespace pizza_delivery.ViewModel
                           db.Composition.Add(c);
                       }
                       db.SaveChanges();
-                      getWeight = 310;
                       Pizza.Clear();
-                      summa = 80;
-                      Sostav = "Тесто";
                       Ingredients ing = db.Ingredients.Find(1);
+                      Summa = ing.Price;
+                      GetWeight = ing.weight;
+                      Sostav = ing.Name;
                       Pizza.Add(ing.IngredientID);
                       ID = product.ProductID;
-                      NotifyObservers();
+                      baskett.Update(ID);
+                      DisplayName = "Пицца была добавлена";
                   },
                   (obj) => (selectingredient != null && summa>=450)));
 
@@ -140,12 +144,12 @@ namespace pizza_delivery.ViewModel
                 return returnPizza ??
                   (returnPizza = new RelayCommand(obj =>
                   {
-                      GetWeight = 310;
                       Pizza.Clear();
-                      Summa = 80;
-                      Sostav = "Тесто";
                       Ingredients ing = db.Ingredients.Find(1);
                       Pizza.Add(ing.IngredientID);
+                      Summa = ing.Price;
+                      GetWeight = ing.weight;
+                      Sostav = ing.Name;
                   }));
                  
 

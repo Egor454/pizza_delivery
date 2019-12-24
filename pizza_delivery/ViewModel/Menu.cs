@@ -8,34 +8,20 @@ using pizza_delivery.Model;
 
 namespace pizza_delivery.ViewModel
 {
-    public class Menu : Bases, IObservable
+    public class Menu : Bases
     {
         private Model1 db;
        
-        private List<IObserver> observers;
         public List<ProductVM> AllPizza { get; set; }
-        public Menu()
+        private Baskett baskett;
+        public Menu(Baskett b)
         {
             
             db = new Model1();
             AllPizza = db.Product.Where(i => i.Own_pizza == false).ToList().Select(i => new ProductVM(i)).ToList();
-            observers = new List<IObserver>();
-            
+            baskett = b;
         }
 
-        public void AddBasket(IObserver o)
-        {
-            observers.Add(o);
-        }
-        private int ID;
-        public void NotifyObservers()
-        {
-            foreach (IObserver o in observers)
-            {
-                o.Update(ID);
-               
-            }
-        }
         private ProductVM selectproduct;
         public ProductVM SelectProduct
         {
@@ -54,8 +40,8 @@ namespace pizza_delivery.ViewModel
                 return addPizza ??
                   (addPizza = new RelayCommand(obj =>
                   {
-                      ID = selectproduct.ProductID;
-                      NotifyObservers();
+                      baskett.Update(selectproduct.ProductID);
+                    
                   },
                   (obj) => (selectproduct!=null)));
             

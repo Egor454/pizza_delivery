@@ -8,7 +8,7 @@ using pizza_delivery.Model;
 
 namespace pizza_delivery.ViewModel
 {
-    public class Baskett:Bases,IObserver
+    public class Baskett:Bases
     {
         Model1 db;
         private ObservableCollection <Product> products;
@@ -19,13 +19,10 @@ namespace pizza_delivery.ViewModel
             set { products = value; OnPropertyChanged("Products"); }
         }
 
-        IObservable menu;
-       public  Baskett(IObservable obs)
+       public Baskett()
         {
             db = new Model1();
             Products = new ObservableCollection<Product>();
-            menu = obs;
-            menu.AddBasket(this);
         }
         public void Update(int ID)
         {
@@ -40,7 +37,6 @@ namespace pizza_delivery.ViewModel
         private string addres = null;
         private string Citys = null;
         private decimal sum ;
-
         public string SetFIO
         {
             get { return Fio; }
@@ -50,7 +46,12 @@ namespace pizza_delivery.ViewModel
         public decimal Setnumber
         {
             get { return number; }
-            set { number = value; OnPropertyChanged("Setnumber"); }
+            set { number = value;Client cl =db.Client.Where(i => i.phone_number == number).FirstOrDefault(); if (cl != null)
+                {
+                    SetFIO = cl.Name;
+                }
+                
+                OnPropertyChanged("Setnumber"); }
 
         }
         public string SetCitys
@@ -122,17 +123,18 @@ namespace pizza_delivery.ViewModel
                       Setaddres = null;
                       SetCitys = null;
                       Setnumber = 0;
-                      
+                      DisplayName = "Заказ готовится";
+
                   },
                  //условие, при котором будет доступна команда
-                 (obj) => (products.Count!=0 && SetFIO != null && Setnumber != 0 && SetCitys != null && Setaddres != null)));
+                 (obj) => (products.Count!=0 && SetFIO != null && Setnumber != 0 && SetCitys != null && Setaddres != null && Convert.ToString(number).Length==11)));
                 
             }
             
         }          
         public decimal Getsum 
         {
-            get { return sum; }
+            get { return sum ; }
             set { sum = value; OnPropertyChanged("Getsum"); }
             
         }

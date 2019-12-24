@@ -16,27 +16,29 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" >
-            <TextBox Text="Введите номер телефона:" IsReadOnly="True" Margin="2"  FontFamily="Franklin Gothic Medium" FontSize="14" FontWeight="Bold" FontStyle="Italic" Background="White" Foreground="{DynamicResource DarkBaseBrush}" Style="{StaticResource TextNew}" Height="18" />
-            <TextBox  Text="{Binding Path=Setnumber}" Margin="10" HorizontalAlignment="Center" Width="200" Height="18"/>
+                <TextBox Text="Введите номер телефона:" IsReadOnly="True" Margin="2"  FontFamily="Franklin Gothic Medium" FontSize="14" FontWeight="Bold" FontStyle="Italic" Background="White" Foreground="{DynamicResource DarkBaseBrush}" Style="{StaticResource TextNew}" Height="18" />
+                <TextBox MaxLength="11" Text="{Binding Path=Setnumber}" Margin="10" HorizontalAlignment="Center" Width="200" Height="18"/>
                 <TextBox Text="Заказы с:" IsReadOnly="True"  HorizontalAlignment="Center" FontFamily="Franklin Gothic Medium"  FontSize="14" FontWeight="Bold" FontStyle="Italic" Background="White" Foreground="{DynamicResource DarkBaseBrush}" Style="{StaticResource TextNew}" Height="18"/>
-                <DatePicker Name="datePicker1"  SelectedDateFormat="Short" Height="27"  />
-            <TextBox Text="по:" IsReadOnly="True"  HorizontalAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="14" FontWeight="Bold" FontStyle="Italic" Background="White" Foreground="{DynamicResource DarkBaseBrush}" Style="{StaticResource TextNew}" Height="18"/>
-            <DatePicker Name="datePicker2"  SelectedDateFormat="Short" Height="27" />
+                <DatePicker Name="datePicker1" SelectedDate="{Binding Path=Date_Start, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedDateFormat="Short" Height="27"  />
+                <TextBox Text="по:" IsReadOnly="True"  HorizontalAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="14" FontWeight="Bold" FontStyle="Italic" Background="White" Foreground="{DynamicResource DarkBaseBrush}" Style="{StaticResource TextNew}" Height="18"/>
+                <DatePicker Name="datePicker2" SelectedDate="{Binding Path=Date_End, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedDateFormat="Short" Height="27" />
            </StackPanel>
         </Grid>
         <Grid Grid.Row="1">
-            <StackPanel >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Command="{Binding Path=Wath}" CommandParameter="{Binding}" Margin="5" Style="{StaticResource BaseButton}" Content="Найти" Width="100"/>
+                <Button  Click="Button_Click_1" Margin="5" Style="{StaticResource BaseButton}" Content="Печать" Width="100"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="2">
-            <DataGrid AutoGenerateColumns="False" x:Name="phonesGrid"  >
+            <DataGrid AutoGenerateColumns="False" x:Name="PizzaGrid" IsReadOnly="True" ItemsSource="{Binding Path=Data}">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Nomer}" Header="Номер заказа" Width="120"/>
-                <DataGridTextColumn Binding="{Binding Kol}" Header="Количество товара" Width="120"/>
-                <DataGridTextColumn Binding="{Binding Addres}" Header="Адрес" Width="160"/>
-                <DataGridTextColumn Binding="{Binding Price}" Header="Стоимость" Width="80"/>
-            </DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Номер_заказа}" Header="Номер заказа" Width="120"/>
+                    <DataGridTextColumn Binding="{Binding Количество_товара}" Header="Количество товара" Width="120"/>
+                    <DataGridTextColumn Binding="{Binding Адрес}" Header="Адрес" Width="160"/>
+                    <DataGridTextColumn Binding="{Binding Сумма_заказа}" Header="Стоимость" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Дата_заказа}" Header="Дата заказа" Width="*"/>
+                </DataGrid.Columns>
            </DataGrid>
        </Grid>
 

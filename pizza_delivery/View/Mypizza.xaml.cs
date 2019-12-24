@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using pizza_delivery.ViewModel;
 
 namespace pizza_delivery.View
 {
@@ -20,10 +21,10 @@ namespace pizza_delivery.View
     /// </summary>
     public partial class Mypizza : Page
     {
-        public Mypizza(ViewModel.Constructor con)
+        public Mypizza(Baskett b)
         {
             InitializeComponent();
-            DataContext = con;
+            DataContext = new Constructor(b);
         }
     }
 }

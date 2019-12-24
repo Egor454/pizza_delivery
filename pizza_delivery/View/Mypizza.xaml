@@ -157,12 +157,12 @@
         <Grid Grid.Column="1"  >
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <StackPanel >
-                    <TextBox Text="Состав:" IsReadOnly="True"  HorizontalAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="14" FontWeight="Bold" FontStyle="Italic" Background="White" Foreground="{DynamicResource DarkBaseBrush}" Style="{StaticResource TextNew}"/>
-                    <TextBlock Text="{Binding Path=Sostav,UpdateSourceTrigger=PropertyChanged}"  TextWrapping="Wrap" Foreground="{DynamicResource DarkBaseBrush}" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
-                    <TextBox Text="Сумма:" IsReadOnly="True"  HorizontalAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="14" FontWeight="Bold" FontStyle="Italic" Background="White" Foreground="{DynamicResource DarkBaseBrush}" Style="{StaticResource TextNew}"/>
-                    <TextBlock Text="{Binding Path=Summa}"  TextWrapping="Wrap" Foreground="{DynamicResource DarkBaseBrush}" HorizontalAlignment="Center"/>
-                    <TextBox Text="Вес:" IsReadOnly="True"  HorizontalAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="14" FontWeight="Bold" FontStyle="Italic" Background="White" Foreground="{DynamicResource DarkBaseBrush}" Style="{StaticResource TextNew}"/>
-                    <TextBlock Text="{Binding Path=GetWeight}"  TextWrapping="Wrap" Foreground="{DynamicResource DarkBaseBrush}" HorizontalAlignment="Center"/>
+                    <TextBox Text="Состав:" IsReadOnly="True"  HorizontalAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="20" FontWeight="Bold" FontStyle="Italic" Background="White" Foreground="{DynamicResource DarkBaseBrush}" Style="{StaticResource TextNew}"/>
+                    <TextBlock Text="{Binding Path=Sostav,UpdateSourceTrigger=PropertyChanged}" FontSize="18" TextWrapping="Wrap" Foreground="{DynamicResource DarkBaseBrush}" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                    <TextBox Text="Сумма:" IsReadOnly="True"  HorizontalAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="20" FontWeight="Bold" FontStyle="Italic" Background="White" Foreground="{DynamicResource DarkBaseBrush}" Style="{StaticResource TextNew}"/>
+                    <TextBlock Text="{Binding Path=Summa}" FontSize="18" TextWrapping="Wrap" Foreground="{DynamicResource DarkBaseBrush}" HorizontalAlignment="Center"/>
+                    <TextBox Text="Вес:" IsReadOnly="True"  HorizontalAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="20" FontWeight="Bold" FontStyle="Italic" Background="White" Foreground="{DynamicResource DarkBaseBrush}" Style="{StaticResource TextNew}"/>
+                    <TextBlock Text="{Binding Path=GetWeight}" FontSize="18" TextWrapping="Wrap" Foreground="{DynamicResource DarkBaseBrush}" HorizontalAlignment="Center"/>
                     <Button Command="{Binding Path=AddMyPizza}" CommandParameter="{Binding}"  Style="{StaticResource BaseButton}" Content="Купить" Width="100"/>
                     <Button Command="{Binding Path=ReturnPizza}" CommandParameter="{Binding}"  Style="{StaticResource BaseButton}" Margin="5" Content="Заново" Width="100"/>
                 </StackPanel>

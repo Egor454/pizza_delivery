@@ -1,5 +1,4 @@
-﻿using pizza_delivery.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,23 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-
-
+using pizza_delivery.ViewModel;
 namespace pizza_delivery.View
 {
     /// <summary>
-    /// Логика взаимодействия для Product.xaml
+    /// Логика взаимодействия для Messeg.xaml
     /// </summary>
-    public partial class Product : Page
+    public partial class Messeg : Window
     {
-        public Product(Baskett baskett)
+        public Messeg(Bases bases)
         {
             InitializeComponent();
-            DataContext = new ViewModel.Menu(baskett);
+            DataContext = bases;
         }
-
     }
-
 }

@@ -94,8 +94,6 @@
     <Compile Include="ViewModel\Baskett.cs" />
     <Compile Include="ViewModel\Constructor.cs" />
     <Compile Include="ViewModel\IngredientsVM.cs" />
-    <Compile Include="ViewModel\IObservable.cs" />
-    <Compile Include="ViewModel\IObserver.cs" />
     <Compile Include="ViewModel\IValueConverter.cs" />
     <Compile Include="ViewModel\Menu.cs" />
     <Compile Include="ViewModel\ProductVM.cs" />
@@ -103,6 +101,9 @@
     <Compile Include="ViewModel\Statistica.cs" />
     <Compile Include="View\Basket.xaml.cs">
       <DependentUpon>Basket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Messeg.xaml.cs">
+      <DependentUpon>Messeg.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Mypizza.xaml.cs">
       <DependentUpon>Mypizza.xaml</DependentUpon>
@@ -148,6 +149,10 @@
     <Page Include="Styles\Colors.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Messeg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Mypizza.xaml">
       <SubType>Designer</SubType>

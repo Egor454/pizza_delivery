@@ -25,15 +25,17 @@ namespace pizza_delivery.View
         Page basket;
         Page staticx;
         Page mypizza;
+        Baskett baskett;
+        
         public MainWindow()
         {
             InitializeComponent();
-            ViewModel.Menu menus = new ViewModel.Menu();
-            basket = new Basket(menus);
-            menu = new Product(menus);
+            baskett = new Baskett();
+            basket = new Basket(baskett);
+            menu = new Product(baskett);
             Page.Content = menu;
-            ViewModel.Constructor construc = new ViewModel.Constructor();
-            mypizza = new Mypizza(construc);
+            
+            mypizza = new Mypizza(baskett);
             ViewModel.Statistica sta = new ViewModel.Statistica();
             staticx = new Static(sta);
 

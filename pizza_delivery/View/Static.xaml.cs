@@ -25,5 +25,13 @@ namespace pizza_delivery.View
             InitializeComponent();
             DataContext = s;
         }
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            PrintDialog dialog = new PrintDialog();
+            if (dialog.ShowDialog() == true)
+            {
+                dialog.PrintVisual(PizzaGrid, "Печатаем отчет");
+            }
+        }
     }
 }
